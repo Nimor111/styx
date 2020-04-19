@@ -41,6 +41,7 @@ Generic options:
         --drafts               Process and render drafts.
         --arg ARG VAL          Pass an argument ARG with the value VAL to the build and serve subcommands.
         --argstr ARG VAL       Pass an argument ARG with the value VAL as a string to the build and serve subcommands.
+        --option NAME VAL      Nix configuration option to pass on to the Nix build.
         --show-trace           Show debug trace messages.
 
 Build options:
@@ -234,6 +235,9 @@ while [ "$#" -gt 0 ]; do
       extraFlags+=("$i" "$1"); shift 1
       ;;
     --arg|--argstr)
+      extraFlags+=("$i" "$1" "$2"); shift 2
+      ;;
+    --option)
       extraFlags+=("$i" "$1" "$2"); shift 2
       ;;
     --show-trace|--quiet|--verbose)
