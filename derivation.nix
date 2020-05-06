@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   name    = "styx-${version}";
   version = stdenv.lib.fileContents ./VERSION;
 
-  src = stdenv.lib.cleanSource ./.;
+  src = ./.;
 
   server = "${caddy}/bin/caddy";
   linkcheck = "${linkchecker}/bin/linkchecker";
