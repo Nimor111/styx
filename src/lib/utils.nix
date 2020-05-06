@@ -41,14 +41,14 @@ in rec {
 
     examples = [ (mkExample {
       literalCode = ''
-        find { uid = "bar"; } [ 
+        find { uid = "bar"; } [
           { uid = "foo"; }
           { uid = "bar"; content = "hello!"; }
           { uid = "baz"; }
         ]
       '';
       code =
-        find { uid = "bar"; } [ 
+        find { uid = "bar"; } [
           { uid = "foo"; }
           { uid = "bar"; content = "hello!"; }
           { uid = "baz"; }
@@ -565,7 +565,6 @@ in rec {
         {
         ${indent (n+1)}${concatStringsSep "\n${indent (n+1)}" (mapAttrsToList (k: v:
           let k' = if (match "^(.+)\\.(.+)$" k) != null
-                   || (match "^(.+)\\s(.+)$" k) != null
                    then ''"${k}"''
                    else k;
           in
