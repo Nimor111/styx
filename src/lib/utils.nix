@@ -565,7 +565,7 @@ in rec {
         {
         ${indent (n+1)}${concatStringsSep "\n${indent (n+1)}" (mapAttrsToList (k: v:
           let k' = if (match "^(.+)\\.(.+)$" k) != null
-                   || (match "^(.+)\\s(.+)$" k) != null
+                   # || (match "^(.+)\\s(.+)$" k) != null
                    then ''"${k}"''
                    else k;
           in
